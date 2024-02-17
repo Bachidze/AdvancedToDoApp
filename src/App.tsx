@@ -135,9 +135,8 @@ function App() {
           <h1 className='hidden xl:flex'>Clear Completed</h1>
         </div>
       </section>
-      <footer className='flex justify-center mt-[40px] text-[#9495A5] dark:text-[#5B5E7E] xl:relative xl:mt-[150px]'>Drag and drop to reorder list</footer>
+      <footer className='flex absolute bottom-0 justify-center mt-[40px] mb-[50px] text-[#9495A5] dark:text-[#5B5E7E] xl:relative xl:mt-[150px]'>Drag and drop to reorder list</footer>
       </main>
-
     </>
   );
 }
