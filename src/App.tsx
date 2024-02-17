@@ -11,18 +11,11 @@ function App() {
   });
   const [changeImg, setChangeImg] = useState(true);
   const [changeImg2, setChangeImg2] = useState(false);
-  const [itemNum, setItemNum] = useState(false)
+  const [active, SetActive] = useState('')
 
-  const click = (clicknum:any) => {
-    
-    if(itemNum === clicknum){
-      setItemNum(false)
-    }else{
-      setItemNum(clicknum)
-    }
-    setItemNum(!itemNum)
-  
-}
+  const click = (clicknum: 'all' | 'active' | 'completed') => {
+    SetActive(clicknum);
+  };
 
   const toggle = () => {
     setShow(!Show);
@@ -136,9 +129,9 @@ function App() {
       <section className='flex  justify-center'>
         <div className='w-[327px] h-[48px] bg-white flex justify-evenly items-center margin-[auto]  p-5 dark:bg-[#25273D] dark:text-[#5B5E7E] mt-[30px] rounded-[5px] md:w-[440px] md:h-[54px] xl:w-[540px] xl:h-[64px] xl:relative xl:top-[50px]'>
         <h1 className='hidden xl:flex'>{remainingItems} items left</h1>
-          <h1 onClick={click} style={{color:itemNum ?'blue':''}} className='cursor-pointer'>All</h1>
-          <h1 onClick={click} style={{color:itemNum ?'blue':''}} className='cursor-pointer'>Active</h1>
-          <h1 onClick={click} style={{color:itemNum ?'blue':''}} className='cursor-pointer'>Completed</h1>
+        <h1 onClick={() => click('all')} style={{ color: active === 'all' ? 'blue' : '' }} className='cursor-pointer'>All</h1>
+        <h1 onClick={() => click('active')} style={{ color: active === 'active' ? 'blue' : '' }} className='cursor-pointer'>Active</h1>
+        <h1 onClick={() => click('completed')} style={{ color: active === 'completed' ? 'blue' : '' }} className='cursor-pointer'>Completed</h1>
           <h1 className='hidden xl:flex'>Clear Completed</h1>
         </div>
       </section>
